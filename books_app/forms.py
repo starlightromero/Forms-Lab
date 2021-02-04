@@ -23,11 +23,10 @@ class BookForm(FlaskForm):
 class AuthorForm(FlaskForm):
     """Form to create an author."""
 
-    # STRETCH CHALLENGE: Add more fields here as well as in `models.py` to
-    # collect more information about the author, such as their birth date,
-    # country, etc.
     name = StringField("Name", validators=[DataRequired(), Length(min=3, max=30)])
-    biography = TextAreaField("Biography")
+    biography = TextAreaField("Biography", validators=[DataRequired()])
+    dob = DateField("Date of Birth", validators=[DataRequired()])
+    country = StringField("Country", validators=[DataRequired(), Length(min=3, max=30)])
     submit = SubmitField("Submit")
 
 
