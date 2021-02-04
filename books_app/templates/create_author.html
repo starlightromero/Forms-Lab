@@ -4,6 +4,59 @@
 
 <p>Author creation form.</p>
 
-<!-- TODO: Add a <form> element here and use the form variable to show the labels & fields -->
+<div>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset>
+      {{ form.name.label }}
+      {% if form.name.errors %}
+        {{ form.name(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.name.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      {% else %}
+        {{ form.name }}
+      {% endif %}
+      {{ form.biography.label }}
+      {% if form.biography.errors %}
+        {{ form.biography(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.biography.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      {% else %}
+        {{ form.biography }}
+      {% endif %}
+      {{ form.dob.label }}
+      {% if form.dob.errors %}
+        {{ form.dob(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.dob.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      {% else %}
+        {{ form.dob }}
+      {% endif %}
+      {{ form.country.label }}
+      {% if form.country.errors %}
+        {{ form.country(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.country.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      {% else %}
+        {{ form.country }}
+      {% endif %}
+    </fieldset>
+    <div>
+      {{ form.submit }}
+    </div>
+  </form>
+</div>
 
 {% endblock %}
