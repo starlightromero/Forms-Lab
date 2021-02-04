@@ -4,6 +4,26 @@
 
 <p>Genre creation form.</p>
 
-<!-- TODO: Add a <form> element here and use the form variable to show the labels & fields -->
+<div>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset>
+      {{ form.name.label }}
+      {% if form.name.errors %}
+        {{ form.name(class="is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.name.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      {% else %}
+        {{ form.name }}
+      {% endif %}
+    </fieldset>
+    <div>
+      {{ form.submit }}
+    </div>
+  </form>
+</div>
 
 {% endblock %}
